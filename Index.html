@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coin Master Invite Tester</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input, button { padding: 10px; margin: 5px 0; width: 100%; }
+    #result { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Coin Master Invite Link Tester</h2>
+  <input type="text" id="inviteLink" placeholder="Paste your invite link here">
+  <button onclick="sendRequest()">Send Request</button>
+  <div id="result"></div>
+
+  <script>
+    function sendRequest() {
+      const url = document.getElementById('inviteLink').value;
+      fetch(url)
+        .then(response => {
+          document.getElementById('result').innerText = 'Status: ' + response.status;
+        })
+        .catch(error => {
+          document.getElementById('result').innerText = 'Error: ' + error.message;
+        });
+    }
+  </script>
+</body>
+</html>
